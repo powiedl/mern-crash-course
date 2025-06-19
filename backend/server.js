@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/products', productRoutes);
 
 if (process.env.NODE_ENV === 'production') {
+  console.log('Running in production environment ...');
   app.use(express.static(path.join(__dirname, '/frontend/dist'))); // "embed" the react frontend application (before this you must run npm run build in the frontend directory)
 
   app.get('*', (req, res) => {
